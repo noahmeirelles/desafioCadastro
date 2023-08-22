@@ -8,12 +8,7 @@ this.phone = phone;
 this.cpf = cpf;
     }
 }
-class Doner {
-    constructor(){
-    this.ray = [];
-    this.userId = 1;
-    }
-}
+
 
 class ListUser{
     constructor(){
@@ -30,6 +25,8 @@ function showUsers(){
     document.getElementById("title-page").classList.add("hidden");
     document.getElementById("main-div").classList.add("hidden");
     console.log("Passou pela funcao showRegister()");
+
+    createUser()
 }
 
 
@@ -67,10 +64,16 @@ getZodiacSign() {
 }
 
 function createUser(){
-    const all = new  Users(name, email, birthDate, address,phone)
     let html = "";
-    ListUser.ray.forEach(all => {
+    ListUser.ray.forEach(Users => {
         html += `
+        <div class= "list-eachUser">
+        <b>Nome:${Users().name}</b>
+        <b>E-mail:${Users().email}</b>
+        <b>Birth Date:${Users().birthDate}</b>
+        <b>Address:${Users().address}</b>
+        <b>Phone number: (19)${Users().phone}</b>
+        </div>
         `
     });
 
